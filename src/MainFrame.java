@@ -45,7 +45,7 @@ public class MainFrame extends JFrame {
       public void actionPerformed(ActionEvent e) {
         String firstName = tfFirstName.getText();
         String lastName = tfLastName.getText();
-        lbWelcome.setText("Hello" + firstName + " " + lastName);
+        lbWelcome.setText("Hello " + firstName + " " + lastName);
       }
 
     });
