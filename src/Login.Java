@@ -2,33 +2,33 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class MainFrame extends JFrame {
+public class Login extends JFrame {
   final private Font mainFont = new Font("Segoe print", Font.BOLD, 18);
-  JTextField tfFirstName, tfLastName;
+  JTextField tfEmail, tfPassword;
   JLabel lbWelcome;
 
   public void init() {
 
     /*** Form Panel ***/
 
-    JLabel lbFirstName = new JLabel("First Name");
-    lbFirstName.setFont(mainFont);
+    JLabel lbUserName = new JLabel("Username");
+    lbUserName.setFont(mainFont);
 
-    tfFirstName = new JTextField();
-    tfFirstName.setFont(mainFont);
+    tfEmail = new JTextField();
+    tfEmail.setFont(mainFont);
 
-    JLabel lbLastName = new JLabel("Last Name");
-    lbLastName.setFont(mainFont);
+    JLabel lbPassword = new JLabel("Password");
+    lbPassword.setFont(mainFont);
 
-    tfLastName = new JTextField();
-    tfLastName.setFont(mainFont);
+    tfPassword = new JPasswordField();
+    tfPassword.setFont(mainFont);
 
     JPanel formPanel = new JPanel();
     formPanel.setLayout(new GridLayout(4, 1, 5, 5));
-    formPanel.add(lbFirstName);
-    formPanel.add(tfFirstName);
-    formPanel.add(lbLastName);
-    formPanel.add(tfLastName);
+    formPanel.add(lbUserName);
+    formPanel.add(tfEmail);
+    formPanel.add(lbPassword);
+    formPanel.add(tfPassword);
 
     /*** Welcome Label ***/
 
@@ -37,15 +37,15 @@ public class MainFrame extends JFrame {
 
     /*** Welcome Label ***/
 
-    JButton btnOK = new JButton("ok");
+    JButton btnOK = new JButton("Login");
     btnOK.setFont(mainFont);
     btnOK.addActionListener(new ActionListener() {
 
       @Override
       public void actionPerformed(ActionEvent e) {
-        String firstName = tfFirstName.getText();
-        String lastName = tfLastName.getText();
-        lbWelcome.setText("Hello " + firstName + " " + lastName);
+        String firstName = tfEmail.getText();
+        String lastName = tfPassword.getText();
+        lbWelcome.setText("Hello" + firstName + " " + lastName);
       }
 
     });
@@ -56,8 +56,8 @@ public class MainFrame extends JFrame {
 
       @Override
       public void actionPerformed(ActionEvent e) {
-        tfFirstName.setText("");
-        tfLastName.setText("");
+        tfEmail.setText("");
+        tfPassword.setText("");
         lbWelcome.setText("");
       }
 
@@ -85,7 +85,7 @@ public class MainFrame extends JFrame {
   }
 
   public static void main(String[] args) {
-    MainFrame myFrame = new MainFrame();
+    Login myFrame = new Login();
     myFrame.init();
   }
 }
