@@ -1,5 +1,5 @@
 import Footer from "@/packages/src/components/footer";
-import Header from "@/packages/src/components/header";
+import { Header } from "@/packages/src/components/header";
 import Stats from "@/packages/src/components/stats-feat";
 import Showcase from "@/packages/src/components/showcase-feat";
 
