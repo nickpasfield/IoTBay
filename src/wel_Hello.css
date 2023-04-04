@@ -17,30 +17,53 @@ body {
  }
  p{
   height: 100%;
-  margin: 50px;
+  margin: 100px;
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
   justify-items: center;
   align-items: center;
   background-color: #FFFF;
  }
-
+ .icon{
+  top: 2%;
+  position: absolute;
+  width: 150px;
+  height:110px;
+ }
  .button{
     top: 50%;
     left: 47%;
     width:100px;
     height:40px;
-    position: relative;
+    position: absolute;
     z-index: 2;
     background:#FFFF; 
     
  }
  
 .navbar {
+  top: 5%;
+  position: absolute;
   padding-left: 150px;
   overflow: hidden;
   background-color: transparent;
   font-family: Arial;
+}
+
+
+
+.logOut{
+  top: 5%;
+  left: 90%;
+  width:100px;
+  height:40px;
+  position: absolute;
+  font-size: small;
+  background:#1db863; 
+  border-radius: 10px;
+  border-width: 0;
+  color:#FFFF;
+
 }
 .navbar a {
   float: left;
