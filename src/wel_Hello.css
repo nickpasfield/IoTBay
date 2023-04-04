@@ -3,15 +3,55 @@ html {
 }
 
 body {
-  height: 100%;
-  margin: 0;
+  
+}
+ head{
+ }
+ h1{height: 100%;
+  margin: 100px;
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
   justify-items: center;
   align-items: center;
-  background-color: #3a3a3a;
-}
+  background-color: #FFFF;
+ }
+ p{
+  height: 100%;
+  margin: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #FFFF;
+ }
 
+ .button{
+    top: 50%;
+    left: 47%;
+    width:100px;
+    height:40px;
+    position: relative;
+    z-index: 2;
+    background:#FFFF; 
+    
+ }
+ 
+.navbar {
+  padding-left: 150px;
+  overflow: hidden;
+  background-color: transparent;
+  font-family: Arial;
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-decoration: none;
+}
 #main-holder {
   width: 50%;
   height: 70%;
