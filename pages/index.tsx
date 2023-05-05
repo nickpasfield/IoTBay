@@ -23,8 +23,57 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { BiRightArrowCircle } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Fade from "@/packages/src/framer-motion/fade-in";
+import {
+  GetStaticProps,
+  GetStaticPaths,
+  NextPage,
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+} from "next";
 
-export default function CallToActionWithVideo() {
+type Data = {
+  customer: Record<string, string>[];
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  let customers;
+
+  try {
+    const response = await fetch(
+      // process.env.NEXT_PUBLIC_HASURA_PROJECT_ENDPOINT as string,
+      "https://neutral-kodiak-70.hasura.app/v1/graphql",
+      {
+        method: "POST",
+        headers: {
+          // "x-hasura-admin-secret": process.env
+          //   .HASURA_GRAPHQL_ADMIN_SECRET as string,
+          "x-hasura-admin-secret":
+            "vqd447DBq1zUd2WnTdNXrfBkXURnxHE7Z6L61VSz5wMWc9SfNFCk8a33lyVm2d4h",
+        },
+        body: JSON.stringify({
+          query: `query {
+          customer {
+            first_name
+          }
+        }`,
+        }),
+      }
+    );
+
+    const data = await response.json();
+    customers = data?.data?.customer || [];
+  } catch (e) {
+    console.log(e);
+  }
+
+  return {
+    props: { customers },
+  };
+};
+
+const Home: NextPage = ({
+  customers,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { colorMode } = useColorMode();
   const router = useRouter();
 
@@ -32,6 +81,14 @@ export default function CallToActionWithVideo() {
     <>
       <Stack bgGradient={"linear(to-tr, pink.200, green.100, pink.200)"}>
         <Header />
+        {/* <Heading>Customers</Heading>
+        <Stack spacing={4}>
+          {customers.map((customer: any) => (
+            <Stack key={customer.id}>
+              <Heading size="md">{customer.first_name}</Heading>
+            </Stack>
+          ))}
+        </Stack> */}
         <Stack align={"center"}>
           <Container maxW={"7xl"} mb={10}>
             <motion.div
@@ -207,4 +264,6 @@ export default function CallToActionWithVideo() {
       </Stack>
     </>
   );
-}
+};
+
+export default Home;

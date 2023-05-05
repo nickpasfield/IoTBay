@@ -2,7 +2,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
 import Head from "next/head";
-import Script from "next/script";
+import withUrql from "../utils/client";
 
 const colors = {
   brand: {
@@ -30,4 +30,5 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default withUrql(MyApp);
+// export default MyApp;
